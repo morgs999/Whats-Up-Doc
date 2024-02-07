@@ -4,19 +4,21 @@ const bcrypt = require('bcrypt');
 
 const doctorSchema = new Schema(
   {
-    precedure: {
+    name: { 
+      type: String, 
+      required: true
+    },
+
+    procedure: {
       type: String,
       hospital: string,
       required: true,
       unique: true,
     },
-   
-  },
-  // set this to use virtual below
-  {
-    toJSON: {
-      virtuals: true,
-    },
+   //do we need to add in name for the doctor?
+      user: [userSchema],
+      hospital: [hospitalSchema],
+      appointment: [appointmentSchema]
   }
 );
 
