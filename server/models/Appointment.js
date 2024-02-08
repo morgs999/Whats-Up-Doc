@@ -1,48 +1,24 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 
 
 const appointmentSchema = new Schema({
   date: {
-    type: String,
+    type: Date,
+    default: Date.now,
     required: true,
   },
   time: {
-    type: Number,
+    type: Date.time,
+    default: Date.time.now,
     required: true,
   },
-  inPerson: {
-    type: Boolean,
-    time: String,
-    required: true,
-  },
-  virtual: {
-    type: Boolean,
-    time: String,
-    required: true,
-  },
-  status: {
-    type: String,
-    default: "Pending",
-  },
-  hospital: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Hospital',
-      required: true,
-    }
-  ],
-  doctors: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Doctors',
-      required: true,
-    }
-  ]
+  User: [userSchema],
+  Procedure: [procedureSchema]
 },
 
   {
-    timestamps: true,
+    // timestamps: true,
   });
 
 const Appointment = model("Appointment", appointmentSchema);
