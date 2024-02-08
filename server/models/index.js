@@ -1,7 +1,7 @@
 const User = require('./User');
-const Appointment = require('./Appointment');
-// const Doctor = require('./Doctor');
-// const Hospital = require('./Hospital');
-// const Procedure = require('./Procedure');
+const Doctor = require('./Doctor');
+const Hospital = require('./Hospital');
+const Appointments = require('./Appointments');
 
-module.exports = { User, Appointment };
+
+module.exports = { User, Doctor, Hospital, Appointments};
