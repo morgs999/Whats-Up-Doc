@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 const bcrypt = require('bcrypt');
 
-const { userSchema } = new Schema({
+const userSchema = new Schema({
   firstname: {
     type: String,
     required: true,
@@ -19,27 +19,21 @@ const { userSchema } = new Schema({
     type: String,
     required: true,
     unique: true,
+    // regex add in
   },
   password: {
     type: String,
     required: true,
     minLength: 5,
+    pattern: "/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/"
   },
-  gender: {
-    type: String,
-    default: "neither",
-  },
-  Appointment: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Appointment',
-      required: true,
-    }
-  ]
+  Appointment: [appointmentSchema],
+  Doctor: [doctorSchema],
+  Hospital: [hospitalSchema]
 },
 
   {
-    timestamps: true,
+    // timestamps: true,
   });
 
 // set up pre-save middleware to create password

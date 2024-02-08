@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const {Schema} = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const {hospitalSchema} = new Schema({
+const hospitalSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -9,17 +9,8 @@ const {hospitalSchema} = new Schema({
   location: {
     type: String,
     required: true
-  },
-  department: {
-    type: String,
-    required: true
-  },
-  doctors: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Doctors'
-    }
-  ]});
+  }
+});
 
 const Hospital = model('Hospital', hospitalSchema);
 
