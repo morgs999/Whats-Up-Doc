@@ -1,4 +1,4 @@
-# Whats-Up-Doc
+# Whats-Up-Doc 🥕
 
 As a user who is looking for a doctor or appointment, I want to use a single web application so that I can keep track of and update my medical information/needs.
 
