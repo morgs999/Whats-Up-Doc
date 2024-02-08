@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const {Schema} = mongoose;
+const { Schema } = mongoose;
 
 
-const apptSchema = new Schema({
+const appointmentSchema = new Schema({
   date: {
     type: String,
     required: true,
@@ -38,12 +38,13 @@ const apptSchema = new Schema({
       ref: 'Doctors',
       required: true,
     }
-  ]},
+  ]
+},
 
   {
     timestamps: true,
   });
 
-const Appointment = model("Appointment", apptSchema);
+const Appointment = model("Appointment", appointmentSchema);
 
 module.exports = Appointment;

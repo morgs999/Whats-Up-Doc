@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-const {Schema} = mongoose;
+const { Schema } = mongoose;
 
-const {docSchema} =new Schema({
+const { doctorSchema } = new Schema({
   firstname: {
     type: String,
     required: true,
-    trim:true,
+    trim: true,
     minlength: 3
   },
   lastname: {
@@ -31,13 +31,14 @@ const {docSchema} =new Schema({
       type: Schema.Types.ObjectId,
       ref: 'Hospital'
     }
-  ]},
+  ]
+},
 
-{
-  timestamps: true,
-});
+  {
+    timestamps: true,
+  });
 
 
-const Doctors = model("Doctors", docSchema);
+const Doctors = model("Doctors", doctorSchema);
 
 module.exports = Doctors;
