@@ -38,6 +38,11 @@ const typeDefs = `
     prescription: [Prescription]
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Query {
       doctors: [Doctor]
       procedures: [Procedure]
@@ -58,7 +63,7 @@ const typeDefs = `
 
     removeAppointment(email: String!, id: ID!): User
 
-    updateRefill(name: String!, refillValue: boolean!): Prescription
+    updateRefill(name: String!, refill: Boolean!): Prescription
   }
 
 `;
