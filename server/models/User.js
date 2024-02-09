@@ -30,10 +30,10 @@ const userSchema = new Schema({
   location: {
     location: String
   },
-  // Appointment: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Appointment"
-  // },
+  appointment: {
+    type: Schema.Types.ObjectId,
+    ref: "Appointment"
+  },
   doctor: {
     type: String,
     ref: "Doctor"
