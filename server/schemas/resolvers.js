@@ -1,4 +1,4 @@
-const { User, Hospital, Appointment, Doctor, Prescription, Procedure } = require('../models');
+const { User, Doctor, Hospital, Appointment, Procedure, Prescription } = require('../models')
 
 const resolvers = {
   Query: {
@@ -6,11 +6,13 @@ const resolvers = {
       return Doctor.find();
     },
     procedures: async () => {
-      return Procedure.find().populate('appointment');
+      return Procedure.find()
+      // .populate('appointment');
     },
     prescription: async (parent, { name }) => {
-      return Prescription.findOne({ name }).populate('procedure').populate('appointment');
-    }
+      return Prescription.findOne({ name })
+      // .populate('procedure').populate('appointment');
+    },
   }
   ,
   Mutation: {
@@ -80,10 +82,10 @@ const resolvers = {
         { new: true }
       )
     },
-    updateRefill: async (parent, { name, refillValue }) => {
+    updateRefill: async (parent, { name, refill }) => {
       return Prescription.findOneAndUpdate(
         { name: name },
-        { $set: { refill: { refillValue } } },
+        { $set: { refill: refill } },
         { new: true }
       )
     }
