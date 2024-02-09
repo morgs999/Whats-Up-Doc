@@ -3,6 +3,7 @@ const db = require('../config/connection');
 
 module.exports = async (modelName, collectionName) => {
   try {
+    // console.log(db.db);
     let modelExists = await models[modelName].db.db.listCollections({
       name: collectionName
     }).toArray()
@@ -11,6 +12,7 @@ module.exports = async (modelName, collectionName) => {
       await db.dropCollection(collectionName);
     }
   } catch (err) {
+    console.log(err);
     throw err;
   }
 }
