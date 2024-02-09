@@ -13,10 +13,12 @@ const appointmentSchema = new Schema({
   },
   procedure: {
     type: Schema.Types.ObjectId,
+    required: true,
     ref: 'Procedure'
   },
   user: {
-    type: Schema.Types.ObjectId,
+    type: Schema.Types.String,
+    required: true,
     ref: 'User'
   }
 });

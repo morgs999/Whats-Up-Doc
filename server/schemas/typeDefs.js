@@ -11,8 +11,8 @@ const typeDefs = `
 
   type Appointment {
     _id: ID!
-    date: Date!
-    time: Date!
+    date: String!
+    time: String!
     procedure: Procedure
     user: User
   }
@@ -39,8 +39,26 @@ const typeDefs = `
   }
 
   type Query {
-    doctors: [Doctor]
-    procedures: [Procedure]
+      doctors: [Doctor]
+      procedures: [Procedure]
+      prescription(name: String!): Prescription 
+  }
+
+  type Mutation {
+    addUser(email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
+
+    updateUser(email: String!, password: String!, doctor: String): User
+
+    addDoctor(email: String!, name: String!): User
+
+    removeDoctor(email: String!, name: String!): User
+
+    addAppointment(date: String!, time: String!, procedure: ID!, user: String!): User
+
+    removeAppointment(email: String!, id: ID!): User
+
+    updateRefill(name: String!, refillValue: boolean!): Prescription
   }
 
 `;

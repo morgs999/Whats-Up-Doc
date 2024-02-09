@@ -11,8 +11,8 @@ export const LOGIN_USER = gql`
     }
   }
   `;
-  
-  export const ADD_USER = gql`
+
+export const ADD_USER = gql`
   mutation addUser($email: String!, $password: String!) {
     addUser(email: $email, password: $password) {
       token
@@ -23,8 +23,8 @@ export const LOGIN_USER = gql`
     }
   }
   `;
-  
-  export const UPDATE_USER_INFO = gql`
+
+export const UPDATE_USER_INFO = gql`
     mutation updateUserInfo($email:String! $password: String!) {
       updateUserInfo(email: $email, password: $password) {
         token
@@ -39,15 +39,15 @@ export const LOGIN_USER = gql`
     }
   `;
 
-  export const ADD_DOCTOR = gql`
+export const ADD_DOCTOR = gql`
   mutation addDoctor($name: String!) {
     addDoctor(name: $name) {
       name
     }
   }
   `;
-  
-  export const REMOVE_DOCTOR = gql`
+
+export const REMOVE_DOCTOR = gql`
     mutation removeDoctor($name: String!) {
       removeDoctor(name: $name) {
         name
@@ -55,35 +55,70 @@ export const LOGIN_USER = gql`
       }
     }
   `;
-  
-  //do we update the doctor for the user too?
-  //is this the right syntax to do that 
-  
-  //not certain about this one, or if we need to link in the user somehow
-  
-  export const UPDATE_DOCTOR = gql`
-    mutation updateDoctor($name: String!) {
-      updateDoctor(name: $name) {
+
+//do we update the doctor for the user too?
+//is this the right syntax to do that 
+
+//not certain about this one, or if we need to link in the user somehow
+
+// export const UPDATE_DOCTOR = gql`
+//   mutation updateDoctor($name: String!) {
+//     updateDoctor(name: $name) {
+//       doctor {
+//         name
+//       }
+//     }
+//   }
+// `;
+
+//taking name from doctor for an appointment with them?
+// export const ADD_APPOINTMENT = gql`
+//   mutation addAppointment($name:String!) {
+//     addAppointment(name: $name) {
+//       name
+//     }
+//     doctor {
+//       name
+//     }
+//   }
+// `;
+
+export const ADD_APPOINTMENT = gql`
+  mutation addAppointment(
+    $date: String!
+    $time: String!
+    $procedure: ID!
+    $user: String!
+  ) 
+  {
+    addAppointment(
+      date: $date
+      time: $time
+      procedure: $procedure
+      user: $user
+    ) 
+    {
+      date
+      time
+      procedure{
+        _id
+        name
+        prescription
+      }
+      user {
+        firstName
+        lastName
+        location
         doctor {
           name
         }
       }
-    }
-  `;
-
-  //taking name from doctor for an appointment with them?
-  export const ADD_APPOINTMENT = gql`
-  mutation addAppointment($name:String!) {
-    addAppointment(name: $name) {
-      name
-    }
-    doctor {
-      name
+      }
     }
   }
 `;
 
-export const REMOVE_APPOINTMENT = gql `
+export const REMOVE_APPOINTMENT = gql`
 mutation removeAppointment ($id=ID!) {
   removeAppointment (id:$id) {
     id
@@ -93,7 +128,7 @@ mutation removeAppointment ($id=ID!) {
 }
 
 `
-export const UPDATE_REFILL = gql `
+export const UPDATE_REFILL = gql`
 mutation updateRefill($name: String, $refill:Boolean!) {
   updateRefill(name: $name, refill: $refill) {
     id
