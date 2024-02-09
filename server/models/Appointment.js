@@ -1,25 +1,28 @@
-const mongoose = require("mongoose");
-const { Schema, model } = mongoose;
+// const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 
 const appointmentSchema = new Schema({
   date: {
     type: Date,
-    default: Date.now,
     required: true,
   },
   time: {
-    type: Date.time,
-    default: Date.time.now,
+    type: Date,
     required: true,
   },
-  User: [userSchema],
-  Procedure: [procedureSchema]
-},
+  procedure: {
+    type: Schema.Types.ObjectId,
+    ref: 'Procedure'
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }
+});
 
-  {
-    // timestamps: true,
-  });
+// appointmentSchema.method for setting date to string
+// appointmentSchema.method for setting time to string
 
 const Appointment = model("Appointment", appointmentSchema);
 

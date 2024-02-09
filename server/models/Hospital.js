@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const { Schema, model } = require('mongoose');
+// const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const hospitalSchema = new Schema({
   name: {
@@ -10,7 +10,10 @@ const hospitalSchema = new Schema({
     type: String,
     required: true
   }
-});
+},
+  {
+    id: false
+  });
 
 const Hospital = model('Hospital', hospitalSchema);
 

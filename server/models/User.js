@@ -1,15 +1,15 @@
-const mongoose = require('mongoose');
-const { Schema, model } = mongoose;
+// const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-  firstname: {
+  firstName: {
     type: String,
     required: true,
     trim: true,
     minlength: 3
   },
-  lastname: {
+  lastName: {
     type: String,
     required: true,
     trim: true,
@@ -20,16 +20,27 @@ const userSchema = new Schema({
     required: true,
     unique: true,
     // regex add in
+    pattern: "/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/"
   },
   password: {
     type: String,
     required: true,
-    minLength: 5,
-    pattern: "/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/"
+    minLength: 4,
   },
-  Appointment: [appointmentSchema],
-  Doctor: [doctorSchema],
-  Hospital: [hospitalSchema]
+  location: {
+    location: String
+  },
+  // Appointment: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Appointment"
+  // },
+  doctor: {
+    type: String,
+    ref: "Doctor"
+  },
+  // Hospital: {
+  //   location: String
+  // }
 },
 
   {

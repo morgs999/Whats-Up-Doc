@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Insulin",
+        "price": 1.00,
+        "refill": false
+    },
+    {
+        "name": "COVID Vaccine",
+        "price": 0.00,
+        "refill": false
+    },
+    {
+        "name": "Ozempic",
+        "price": 3.33,
+        "refill": false
+    },
+    {
+        "name": "Prednisone",
+        "price": 2.99,
+        "refill": false
+    },
+    {
+        "name": "Adderall",
+        "price": 4.50,
+        "refill": false
+    },
+    {
+        "name": "Xanax",
+        "price": 10.75,
+        "refill": false
+    },
+    {
+        "name": "Flu Shot",
+        "price": 0.00,
+        "refill": false
+    },
+    {
+        "name": "Lisinopril",
+        "price": 6.75,
+        "refill": false
+    }
+]

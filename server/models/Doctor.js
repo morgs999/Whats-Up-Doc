@@ -1,17 +1,15 @@
-const mongoose = require("mongoose");
-const { Schema, model } = mongoose;
+// const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const doctorSchema = new Schema({
   name: {
     type: String,
-    required: true
-    // trim: true,
-    // minlength: 3
+    required: true,
+    trim: true
   }
 },
-
   {
-    // timestamps: true,
+    id: false
   });
 
 

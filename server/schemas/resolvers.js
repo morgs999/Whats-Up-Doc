@@ -1,4 +1,4 @@
-const { User, Hospital, Appointments, Doctor, Prescription } = require('../models');
+const { User, Hospital, Appointment, Doctor, Prescription, Procedure } = require('../models');
 
 const resolvers = {
   Query: {

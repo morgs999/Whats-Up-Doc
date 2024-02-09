@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const { Schema, model } = mongoose;
+// const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const prescriptionSchema = new Schema({
     price: {
@@ -15,9 +15,8 @@ const prescriptionSchema = new Schema({
         required: true
     }
 },
-
     {
-        // timestamps: true,
+        id: false
     });
 
 

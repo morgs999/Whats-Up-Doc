@@ -1,19 +1,15 @@
-const mongoose = require("mongoose");
-const { Schema, model } = mongoose;
+// const mongoose = require("mongoose");
+const { Schema, model } = require ("mongoose");
 
 const procedureSchema = new Schema({
     name: {
         type: String,
         required: true
     },
-    Prescription: [prescriptionSchema]
-},
-
-    {
-        // timestamps: true,
-    });
+    // prescription: [prescriptionSchema]
+});
 
 
-const Procedure = model("Procedur", procedureSchema);
+const Procedure = model("Procedure", procedureSchema);
 
 module.exports = Procedure;

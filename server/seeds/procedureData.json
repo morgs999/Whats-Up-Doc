@@ -1,0 +1,89 @@
+[
+    {
+        "name": "COVID Vaccine",
+        "prescription": [
+            {
+                "name": "COVID Vaccine",
+                "price": 0.00,
+                "refill": false
+            }
+        ]
+    },
+    {
+        "name": "Diabetes Checkup",
+        "prescription": [
+            {
+                "name": "Insulin",
+                "price": 1.00,
+                "refill": false
+            },
+            {
+                "name": "Ozempic",
+                "price": 3.33,
+                "refill": false
+            }
+        ]
+    },
+    {
+        "name": "Breast and Colorectal Cancer Well Follow-Up"
+    },
+    {
+        "name": "Gastrointestinal (GI) Endoscopy"
+    },
+    {
+        "name": "High Risk Lung Cancer Screening"
+    },
+    {
+        "name": "Magnetic Resonance Imaging (MRI)"
+    },
+    {
+        "name": "Psychiatric Appointment",
+        "prescription": [
+            {
+                "name": "Xanax",
+                "price": 10.75,
+                "refill": false
+            }
+        ]
+    },
+    {
+        "name": "Attention Deficit Disorder (ADD/ADHD) Testing",
+        "prescription": [
+            {
+                "name": "Adderall",
+                "price": 4.50,
+                "refill": false
+            }
+        ]
+    },
+    {
+        "name": "Flu Shot",
+        "prescription": [
+            {
+                "name": "Flu Shot",
+                "price": 0.00,
+                "refill": false
+            }
+        ]
+    },
+    {
+        "name": "High Blood Pressure Checkup",
+        "prescription": [
+            {
+                "name": "Lisinopril",
+                "price": 6.75,
+                "refill": false
+            }
+        ]
+    },
+    {
+        "name": "Common Cold / Steroid Shot",
+        "prescription": [
+            {
+                "name": "Prednisone",
+                "price": 2.99,
+                "refill": false
+            }
+        ]
+    }
+]
