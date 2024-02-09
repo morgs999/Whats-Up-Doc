@@ -1,5 +1,7 @@
 [
   {
-    "email": "abc@123.com"
+    "firstname": "morgan",
+    "lastname": "clarke",
+    "email": "morgan@clarke.com"
   }
 ]

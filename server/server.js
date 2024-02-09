@@ -12,7 +12,7 @@ const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
 // Configure dotenv
-const cors = require("cors"); 
+const cors = require("cors");
 require("dotenv").config();
 
 // Middleware
@@ -29,10 +29,10 @@ const server = new ApolloServer({
   playground: true,
 });
 
-  app.use(express.urlencoded({ extended: true }));
-  app.use(express.json());
-  
-  app.use('/graphql', expressMiddleware(server));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use('/graphql', expressMiddleware(server));
 
 // Serve up static assets
 app.use('/images', express.static(path.join(__dirname, '../client/images')));

@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Stevenson Memorial Hospital",
+        "location": "Alliston, ON"
+    },
+    {
+        "name": "Royal Victoria Regional Health Centre",
+        "location": "Barrie, ON"
+    },
+    {
+        "name": "Mississauga Hospital",
+        "location": "Mississagua, ON"
+    },
+    {
+        "name": "St. Michael's Hospital",
+        "location": "Toronto, ON"
+    },
+    {
+        "name": "Beaumont Hospital",
+        "location": "Royal Oak, MI"
+    },
+    {
+        "name": "Credit Valley Hospital",
+        "location": "Etobicoke, ON"
+    }
+]

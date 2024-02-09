@@ -1,5 +1,5 @@
 // import models
-const { User, Doctor, Hospital, Appointment } = require('../models');
+const { User } = require('../models');
 
 // import sign token function from auth
 const { signToken } = require('../utils/auth');
