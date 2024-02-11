@@ -85,9 +85,11 @@ const Doctors = () => {
           <h1 className="text-4xl font-semibold text-center lg:text-start">
             Our Doctors
           </h1>
-          <p className="mt-2 text-center lg:text-start">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus,
-            quidem.
+          <p className="text-1xl mt-2 text-center lg:text-start">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora quia
+          suscipit illum, numquam incidunt nostrum dolor officia doloremque
+          cupiditate, placeat explicabo sed iure atque neque quidem ipsam!
+          Dolor, minus reiciendis.
           </p>
         </div>
         <div className="flex gap-5 mt-4 lg:mt-0">
