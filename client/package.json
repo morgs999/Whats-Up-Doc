@@ -10,10 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link-http": "^1.5.17",
+    "apollo-server": "^3.13.0",
+    "apollo-server-express": "^3.13.0",
     "react": "^18.2.0",
+    "react-animated-text": "^0.1.4",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
-    "react-router-dom": "^6.22.0"
+    "react-router-dom": "^6.22.0",
+    "react-scroll": "^1.9.0",
+    "react-slick": "^0.30.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.55",
