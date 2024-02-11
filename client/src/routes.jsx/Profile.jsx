@@ -56,5 +56,8 @@ const Profile = () => {
   )
 }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> main
 export default Profile
