@@ -10,3 +10,5 @@ When I add a procedure, then I am presented with a list of appointments to choos
 When I add a procedure or appointment, then I am assigned a prescription.
 When I click on my prescription, then I am taking to a payment page to pay for the prescription.
 When I click on my profile page, then I am able to update or delete my doctor, appointment, procedure, hospital, or prescription information.
+
+Tailwind Calendar by [shehab coding](https://tailwindcomponents.com/u/shehab-coding).
