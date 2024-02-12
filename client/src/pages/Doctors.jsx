@@ -159,11 +159,12 @@ const Doctors = () => {
               <div className="flex flex-col justify-center items-center">
                 <h1 className="font-semibold text-xl pt-4">{doctor.doctorName}</h1>
                 <h3 className="pt-2">{doctor.specialty}</h3>
-                <form onSubmit={handleFormSubmit} value={doctor.doctorName}>
-                  <button type="submit" className='border rounded-xl w-full my-5 py-2 px-2 bg-indigo-600 hover:bg-indigo-500 text-white' value={doctor.doctorName} style={{ cursor: 'pointer' }}>Add {`${doctor.doctorName}`}</button>
-                </form>
+
+                <button onClick={handleFormSubmit} className='border rounded-xl w-full my-5 mx-2 py-2 px-2 bg-indigo-600 hover:bg-indigo-500 text-white' value={doctor.doctorName} style={{ cursor: 'pointer' }}>Add {`${doctor.doctorName}`}</button>
+
               </div>
             </div>
+
           ))}
         </Slider>
       </div>
