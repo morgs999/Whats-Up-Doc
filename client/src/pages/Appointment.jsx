@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Slider from "react-slick";
 import Calendar from '../components/Calendar';
@@ -6,6 +7,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ALL_PROCEDURE } from '../utils/queries';
 import { ADD_APPOINTMENT } from '../utils/mutations';
 import Auth from '../utils/auth';
+import TimePicker from '../components/timePicker';
 
 const Appointment = () => {
 
@@ -35,11 +37,35 @@ const Appointment = () => {
     (ADD_APPOINTMENT);
 
   // const [addProcedure, { procerror }] = useMutation(ADD_PROCEDURE);
+  
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
+
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
+    setSelectedTime(null); 
+  };
+
+  const handleTimeSelect = (time) => {
+    setSelectedTime(time);
+  };
 
   return (
     <div className='appointment'>
-      <h1>Book Appointment</h1>
-      <Calendar />
+      <h1>Book Appointments</h1>
+      <div>
+        <Calendar onSelect={handleDateSelect} />
+        {selectedDate && (
+          <TimePicker
+            date={selectedDate}
+            onSelect={handleTimeSelect}
+          />
+        )}
+      </div>
+      {selectedTime && (
+        <p>Selected appointment time: {selectedTime}</p>
+      )}
+      
       <ProceduresList procedures={procedures} />
       <div className="m-5 col-6 justify-center">
         <Slider >
@@ -53,6 +79,7 @@ const Appointment = () => {
           ))}
         </Slider>
       </div>
+
     </div>
   );
 }
