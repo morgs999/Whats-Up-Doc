@@ -40,9 +40,14 @@ export const UPDATE_USER_INFO = gql`
   `;
 
 export const ADD_DOCTOR = gql`
-  mutation addDoctor($name: String!) {
-    addDoctor(name: $name) {
-      name
+  mutation addDoctor($email: String!, $doctorName: String!) {
+    addDoctor(email: $email, doctorName: $doctorName) {
+      user {
+        email
+        doctor {
+          doctorName
+        }
+      }
     }
   }
   `;
@@ -90,44 +95,44 @@ export const ADD_APPOINTMENT = gql`
     $procedure: ID!
     $user: String!
   ) 
-  {
-    addAppointment(
-      date: $date
-      time: $time
-      procedure: $procedure
-      user: $user
-    ) 
     {
-      date
-      time
-      procedure{
-        _id
-        name
-        prescription
+      addAppointment(
+        date: $date
+        time: $time
+        procedure: $procedure
+        user: $user
+      ) 
+        {
+          date
+          time
+            procedure{
+              _id
+              name
+              prescription
+            }
+            user {
+              firstName
+              lastName
+              location
+                doctor {
+                  name
+                }
+            }
+          }
       }
-      user {
-        firstName
-        lastName
-        location
-        doctor {
-          name
-        }
-      }
-      }
-    }
-  }
+  
 `;
 
 export const REMOVE_APPOINTMENT = gql`
-mutation removeAppointment ($id=ID!) {
+mutation removeAppointment ($id: ID!) {
   removeAppointment (id:$id) {
-    id
+    _id
     success
     message
   }
 }
+`;
 
-`
 export const UPDATE_REFILL = gql`
 mutation updateRefill($name: String, $refill:Boolean!) {
   updateRefill(name: $name, refill: $refill) {
@@ -136,7 +141,7 @@ mutation updateRefill($name: String, $refill:Boolean!) {
     refill
   }
 }
-`
+`;
 
 //add in some sort of message stating the appointment has been removed
 //do we need to add in the appointment id after removing to keep track of it?

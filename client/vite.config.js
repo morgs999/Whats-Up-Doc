@@ -11,7 +11,7 @@ export default defineConfig({
     extend: {},
   },
   plugins: [react()],
-    server: {
+  server: {
     port: 3000,
     open: true,
     proxy: {

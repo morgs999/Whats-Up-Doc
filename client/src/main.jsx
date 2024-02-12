@@ -1,5 +1,6 @@
+import ReactDOM from 'react-dom/client';
 import * as React from "react";
-import { createRoot } from "react-dom"; 
+// import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -7,67 +8,75 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import Home from './routes.jsx/Home'
-import About from './routes.jsx/About'
-import Doctors from "./routes.jsx/Doctors";
-import Appointment from "./routes.jsx/Appointment";
-import Prescriptions from "./routes.jsx/Prescriptions";
-import Contact from './routes.jsx/Contact'
-import Profile from "./routes.jsx/Profile";
-import Login from "./routes.jsx/Login";
-import Navbar from './components/Navbar';
+import App from './App.jsx';
+import Home from './pages/Home';
+import About from './pages/About';
+import Doctors from "./pages/Doctors";
+import Appointment from "./pages/Appointment";
+import Prescriptions from "./pages/Prescriptions";
+import Contact from './pages/Contact';
+import Profile from "./pages/Profile";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+// import Navbar from './components/Navbar';
 import './index.css'
-import './components/Navbar.css';
+// import './components/Navbar/Navbar.css';
 
-const AppLayout = () => {
-    return (
-        <>
-            <Navbar />
-            <Outlet />
-        </>
-    );
-};
+// const AppLayout = () => {
+//   return (
+//     <>
+//       <App />
+//       <Navbar />
+//       <Outlet />
+//     </>
+//   );
+// };
 
 const router = createBrowserRouter([
   {
-    element: <AppLayout />,
+    path: "/",
+    element: <App />,
     children: [
-          {
-            path: "/",
-            element: <Home />,
-          },
-          {
-            path: "/about",
-            element: <About />,
-          },
-          {
-            path: "/doctors", 
-            element: <Doctors />,
-          },
-          {
-            path: "/appointment", 
-            element: <Appointment />,
-          },
-          {
-            path: "/prescriptions", 
-            element: <Prescriptions />,
-          },
-          {
-            path: "/contact", 
-            element: <Contact />,
-          },
-          {
-            path: "/profile", 
-            element: <Profile />,
-          },
-          {
-            path: "/login", 
-            element: <Login />,
-          },
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/doctors",
+        element: <Doctors />,
+      },
+      {
+        path: "/appointment",
+        element: <Appointment />,
+      },
+      {
+        path: "/prescriptions",
+        element: <Prescriptions />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />
+      }
     ],
   },
 ]);
 
-createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
 );

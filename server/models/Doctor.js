@@ -2,7 +2,12 @@
 const { Schema, model } = require("mongoose");
 
 const doctorSchema = new Schema({
-  name: {
+  doctorName: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  specialty: {
     type: String,
     required: true,
     trim: true

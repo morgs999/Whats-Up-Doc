@@ -1,34 +1,56 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_ALL_DOCTOR = gql`
-  query getAllDoctor {
+export const QUERY_USER = gql`
+  query user($email: String!) {
+    user(email: $email) {
       _id
-      name
-      appointment {
-        _id
-      }
+      email
+      firstName
+      lastName
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      email
+      firstName
+      lastName
+    }
+  }
+`;
+
+export const QUERY_ALL_DOCTOR = gql`
+  query getDoctors {
+    doctors  
+    {doctorName
+      specialty}
     }
 `;
 
 
 export const QUERY_ALL_PROCEDURE = gql`
 query getAllProcedure {
-    _id
-    name
-    appointment {
-      _id
-    }
+  procedure 
+    { _id
+      procedureName
+      appointment {
+        _id
+      }
   }
+}
 `;
 
-export const QUERY_SINGLE_PRESCRIPTION = gql`
-query getSinglePrescription ($name: name!) {
-    prescription(name: $name) {
-        _id
-        name
-        procedure
-        appointment {
-            _id
-        }
-    }
-`;
+// export const QUERY_SINGLE_PRESCRIPTION = gql`
+// query getSinglePrescription ($prescriptionName: prescriptionName!) {
+//     prescription(prescriptionName: $prescriptionName) {
+//         _id
+//         prescriptionName
+//         procedure
+//         appointment {
+//             _id
+//         }
+//     }
+// `;

@@ -6,7 +6,7 @@ const prescriptionSchema = new Schema({
         type: Number,
         required: true
     },
-    name: {
+    prescriptionName: {
         type: String,
         required: true
     },
@@ -22,5 +22,5 @@ const prescriptionSchema = new Schema({
 
 const Prescription = model("Prescription", prescriptionSchema);
 
-// module.exports = { prescriptionSchema, Prescription };
-module.exports = Prescription;
+module.exports = { prescriptionSchema, Prescription };
+// module.exports = Prescription;

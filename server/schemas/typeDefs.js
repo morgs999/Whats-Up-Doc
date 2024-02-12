@@ -1,40 +1,41 @@
 const typeDefs = `
   type User {
-    _id: ID!
-    firstName: String!
-    lastName: String!
-    email: String!
-    password: String!
+    _id: ID
+    firstName: String
+    lastName: String
+    email: String
+    password: String
     location: String
     doctor: Doctor
   }
 
   type Appointment {
-    _id: ID!
-    date: String!
-    time: String!
-    procedure: Procedure
-    user: User
+    _id: ID
+    date: String
+    time: String
+    procedure: Procedure!
+    user: User!
   }
 
   type Doctor {
-    name: String!
+    doctorName: String
+    specialty: String
   }
 
   type Hospital {
-    name: String!
-    location: String!
+    hospitalName: String
+    location: String
   }
 
   type Prescription {
-    price: Float!
-    name: String!
+    price: Float
+    prescriptionName: String
     refill: Boolean!
   }
 
   type Procedure {
     _id: ID
-    name: String
+    procedureName: String
     prescription: [Prescription]
   }
 
@@ -44,26 +45,35 @@ const typeDefs = `
   }
 
   type Query {
-      doctors: [Doctor]
-      procedures: [Procedure]
-      prescription(name: String!): Prescription 
+    users: [User]
+
+    user(email: String!): User
+
+    doctors: [Doctor]
+
+    procedures: [Procedure]
+
+    prescription(prescriptionName: String!): Prescription
+
+    me: User
   }
 
   type Mutation {
     addUser(email: String!, password: String!): Auth
+
     login(email: String!, password: String!): Auth
 
-    updateUser(email: String!, password: String!, doctor: String): User
+    updateUser(email: String!, password: String!, doctor: String!): User
 
-    addDoctor(email: String!, name: String!): User
+    addDoctor(email: String!, doctorName: String!): User
 
-    removeDoctor(email: String!, name: String!): User
+    removeDoctor(email: String!, doctorName: String!): User
 
     addAppointment(date: String!, time: String!, procedure: ID!, user: String!): User
 
     removeAppointment(email: String!, id: ID!): User
 
-    updateRefill(name: String!, refill: Boolean!): Prescription
+    updateRefill(prescriptionName: String!, refill: Boolean!): Prescription
   }
 
 `;
