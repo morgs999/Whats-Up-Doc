@@ -47,6 +47,22 @@ const EventPopup = ({ date, onClose, onSave }) => {
 };
 
 const Calendar = () => {
+
+    const printedDay = function () {
+        const date = new Date(Date.now);
+        console.log(date);
+        const options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        };
+        const newdate = date.toLocaleDateString(undefined, options);
+        console.log(newdate);
+        return newdate;
+    }
+}
+
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
   const [events, setEvents] = useState([]);
@@ -162,5 +178,6 @@ const Calendar = () => {
     </div>
   );
 };
+
 
 export default Calendar;

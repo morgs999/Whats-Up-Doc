@@ -52,6 +52,16 @@ export const ADD_DOCTOR = gql`
   }
   `;
 
+export const ADD_PROCEDURE = gql`
+  mutation addProcedure($id: ID!, $procedureName: String!) {
+    addProcedure(_id: $id, procedureName: $procedureName) {
+      appointment {
+        _id
+      }
+    }
+  }
+`
+
 export const REMOVE_DOCTOR = gql`
     mutation removeDoctor($name: String!) {
       removeDoctor(name: $name) {
