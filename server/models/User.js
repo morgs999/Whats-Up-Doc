@@ -1,17 +1,16 @@
-// const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
   firstName: {
     type: String,
-    required: true,
+    // required: true,
     trim: true,
     minlength: 3
   },
   lastName: {
     type: String,
-    required: true,
+    // required: true,
     trim: true,
     minlength: 3
   },
@@ -20,7 +19,7 @@ const userSchema = new Schema({
     required: true,
     unique: true,
     // regex add in
-    pattern: "/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/"
+    match: [/.+@.+\..+/, 'Must match an email address!']
   },
   password: {
     type: String,
@@ -28,7 +27,8 @@ const userSchema = new Schema({
     minLength: 4,
   },
   location: {
-    location: String
+    location: String,
+    // match: [/([a-zA-Z]*),? ([A-Z][A-Z])/]
   },
   appointment: {
     type: Schema.Types.ObjectId,
@@ -41,17 +41,15 @@ const userSchema = new Schema({
   // Hospital: {
   //   location: String
   // }
-},
-
-  {
-    // timestamps: true,
-  });
+});
 
 // set up pre-save middleware to create password
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password);
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
   }
+
   next();
 });
 

@@ -1,17 +1,46 @@
 [
     {
-        "name": "Dr. Stevens"
+        "doctorName": "Dr. Stevens",
+        "specialty": "Cardiologist"
     },
     {
-        "name": "Dr. Adams"
+        "doctorName": "Dr. Adams",
+        "specialty": "Orthopedic Surgeon"
     },
     {
-        "name": "Dr. Angela"
+        "doctorName": "Dr. Angela",
+        "specialty": "Dermatologist"
     },
     {
-        "name": "Dr. Krzyzewski"
+        "doctorName": "Dr. Krzyzewski",
+        "specialty": "Pediatrician"
     },
     {
-        "name": "Dr. Who"
+        "doctorName": "Dr. Who",
+        "specialty": "timetravel"
+    },
+    {
+        "doctorName": "Dr. Serena Mitchell",
+        "specialty": "Orthopedic Surgeon"
+    },
+    {
+        "doctorName": "Dr. Julian Bennett",
+        "specialty": "Cardiologist"
+    },
+    {
+        "doctorName": "Dr. Camila Rodriguez",
+        "specialty": "Pediatrician"
+    },
+    {
+        "doctorName": "Dr. Victor Nguyen",
+        "specialty": "Neurologist"
+    },
+    {
+        "doctorName": "Dr. Ethan Carter",
+        "specialty": "Dermatologist"
+    },
+    {
+        "doctorName": "Dr. Olivia Martinez",
+        "specialty": "Ophthalmologist"
     }
 ]

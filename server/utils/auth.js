@@ -8,7 +8,7 @@ const expiration = '2h';
 
 // function for our authenticated routes
 module.exports = {
-  AuthenticationError: new GraphQLError('Could not authenticate user.', {
+  AuthenticationError: new GraphQLError('Could not authenticate user doofus.', {
     extensions: {
       code: 'UNAUTHENTICATED',
     },
@@ -33,8 +33,8 @@ module.exports = {
 
     return req;
   },
-  signToken: function ({ firstName, email, _id }) {
-    const payload = { firstName, email, _id };
+  signToken: function ({ email, _id }) {
+    const payload = { email, _id };
 
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },

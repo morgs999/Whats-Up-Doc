@@ -1,7 +1,9 @@
 [
-  {
-    "firstname": "morgan",
-    "lastname": "clarke",
-    "email": "morgan@clarke.com"
-  }
+    {
+        "firstName": "Tester",
+        "lastName": "Test",
+        "email": "test@test.com",
+        "password": "1234",
+        "location": "Toronto, ON"
+    }
 ]

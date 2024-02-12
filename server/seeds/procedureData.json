@@ -1,35 +1,35 @@
 [
     {
-        "name": "COVID Vaccine"
+        "procedureName": "COVID Vaccine"
     },
     {
-        "name": "Diabetes Checkup"
+        "procedureName": "Diabetes Checkup"
     },
     {
-        "name": "Breast and Colorectal Cancer Well Follow-Up"
+        "procedureName": "Breast and Colorectal Cancer Well Follow-Up"
     },
     {
-        "name": "Gastrointestinal (GI) Endoscopy"
+        "procedureName": "Gastrointestinal (GI) Endoscopy"
     },
     {
-        "name": "High Risk Lung Cancer Screening"
+        "procedureName": "High Risk Lung Cancer Screening"
     },
     {
-        "name": "Magnetic Resonance Imaging (MRI)"
+        "procedureName": "Magnetic Resonance Imaging (MRI)"
     },
     {
-        "name": "Psychiatric Appointment"
+        "procedureName": "Psychiatric Appointment"
     },
     {
-        "name": "Attention Deficit Disorder (ADD/ADHD) Testing"
+        "procedureName": "Attention Deficit Disorder (ADD/ADHD) Testing"
     },
     {
-        "name": "Flu Shot"
+        "procedureName": "Flu Shot"
     },
     {
-        "name": "High Blood Pressure Checkup"
+        "procedureName": "High Blood Pressure Checkup"
     },
     {
-        "name": "Common Cold / Steroid Shot"
+        "procedureName": "Common Cold / Steroid Shot"
     }
 ]

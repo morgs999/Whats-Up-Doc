@@ -1,41 +1,41 @@
 [
     {
-        "name": "Insulin",
+        "prescriptionName": "Insulin",
         "price": 1.00,
         "refill": false
     },
     {
-        "name": "COVID Vaccine",
+        "prescriptionName": "COVID Vaccine",
         "price": 0.00,
         "refill": false
     },
     {
-        "name": "Ozempic",
+        "prescriptionName": "Ozempic",
         "price": 3.33,
         "refill": false
     },
     {
-        "name": "Prednisone",
+        "prescriptionName": "Prednisone",
         "price": 2.99,
         "refill": false
     },
     {
-        "name": "Adderall",
+        "prescriptionName": "Adderall",
         "price": 4.50,
         "refill": false
     },
     {
-        "name": "Xanax",
+        "prescriptionName": "Xanax",
         "price": 10.75,
         "refill": false
     },
     {
-        "name": "Flu Shot",
+        "prescriptionName": "Flu Shot",
         "price": 0.00,
         "refill": false
     },
     {
-        "name": "Lisinopril",
+        "prescriptionName": "Lisinopril",
         "price": 6.75,
         "refill": false
     }
