@@ -40,9 +40,14 @@ export const UPDATE_USER_INFO = gql`
   `;
 
 export const ADD_DOCTOR = gql`
-  mutation addDoctor($name: String!) {
-    addDoctor(name: $name) {
-      name
+  mutation addDoctor($email: String!, $doctorName: String!) {
+    addDoctor(email: $email, doctorName: $doctorName) {
+      user {
+        email
+        doctor {
+          doctorName
+        }
+      }
     }
   }
   `;

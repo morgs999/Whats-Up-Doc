@@ -71,7 +71,8 @@ const resolvers = {
           { new: true }
         )
       }
-      throw AuthenticationError
+      throw AuthenticationError;
+      ('Need to be logged in to add Doctor');
     },
     removeDoctor: async (parent, { email, doctorName }, context) => {
       if (context.user) {

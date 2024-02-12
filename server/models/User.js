@@ -34,10 +34,10 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Appointment"
   },
-  doctor: {
+  doctor: [{
     type: String,
     ref: "Doctor"
-  },
+  }],
   // Hospital: {
   //   location: String
   // }
