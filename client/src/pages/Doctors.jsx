@@ -118,10 +118,7 @@ const Doctors = () => {
             Our Doctors
           </h1>
           <p className="text-1xl mt-2 text-center lg:text-start">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora quia
-            suscipit illum, numquam incidunt nostrum dolor officia doloremque
-            cupiditate, placeat explicabo sed iure atque neque quidem ipsam!
-            Dolor, minus reiciendis.
+          Please browse the list of doctors below, find the best one for your needs and book an appointment! If a different specializtion is needed, call for inquiry or email us directly. 
           </p>
         </div>
         {/* ARROWS */}

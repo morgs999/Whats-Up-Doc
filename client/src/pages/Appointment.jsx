@@ -53,7 +53,7 @@ const Appointment = () => {
 
   return (
     <div className='appointment'>
-      <h1>Book Appointments</h1>
+      <h1 className="text-center text-4xl font-semibold"> Book Appointments</h1>
       <div>
         <Calendar onSelect={handleDateSelect} />
         {selectedDate && (

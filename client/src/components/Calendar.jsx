@@ -30,9 +30,9 @@ const EventPopup = ({ date, onClose, onSave }) => {
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
             <div className="bg-white p-4 rounded-lg">
-                <h2 className="text-lg font-semibold mb-4">Add event for {date}</h2>
+                <h2 className="text-lg font-semibold mb-4">Schedule an Appointment</h2>
                 <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Event Name</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Appointment Name</label>
                     <input
                         type="text"
                         className="border rounded-md px-3 py-2 w-full"
@@ -41,7 +41,7 @@ const EventPopup = ({ date, onClose, onSave }) => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Event Date</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Appointment Date</label>
                     <input
                         type="date"
                         className="border rounded-md px-3 py-2 w-full"
@@ -169,25 +169,25 @@ const Calendar = () => {
                 <button onClick={nextMonth}>&gt;</button>
             </div>
             <div className="grid grid-cols-7 gap-1 p-2">
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Sun</span>
                 </div>
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Mon</span>
                 </div>
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Tue</span>
                 </div>
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Wed</span>
                 </div>
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Thu</span>
                 </div>
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Fri</span>
                 </div>
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Sat</span>
                 </div>
                 {renderCalendar()}
@@ -195,21 +195,21 @@ const Calendar = () => {
             {selectedDate && (
                 <EventPopup date={selectedDate} onClose={handleClosePopup} onSave={handleSaveEvent} />
             )}
-            <div>
+            <div className='text-center'>
                 <h3 className='underline'>Appointments:</h3>
-                <ul >
+                <ul className="grid grid-cols-1 gap-2">
                     {events.map((event, index) => (
-                        <li key={index}>
-                            <p>{event.date}</p>
-                            <p>{event.name}</p>
-                            <p>{event.procedure}</p>
+                        <li key={index} className="border p-3 rounded-md">
+                            <p className="text-sm font-semibold">Date: {event.date}</p>
+                            <p className="text-sm font-semibold">Name: {event.name}</p>
+                            <p className="text-sm font-semibold">Procedure: {event.procedure}</p>
                         </li>
                     ))}
                 </ul>
             </div>
         </div>
     );
-};
+                    };     
 
 
 export default Calendar;
