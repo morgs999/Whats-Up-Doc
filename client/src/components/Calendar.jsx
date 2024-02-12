@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALL_PROCEDURE } from '../utils/queries';
-// import { useState } from '@apollo/client';
 
 const EventPopup = ({ date, onClose, onSave }) => {
-
     const { loading, data } = useQuery(QUERY_ALL_PROCEDURE);
     const procedures = data?.procedures || [];
 
     const [eventName, setEventName] = useState('');
     const [eventDate, setEventDate] = useState(date);
+    const [selectedProcedure, setSelectedProcedure] = useState('');
 
     const handleEventNameChange = (e) => {
         setEventName(e.target.value);
@@ -19,8 +18,12 @@ const EventPopup = ({ date, onClose, onSave }) => {
         setEventDate(e.target.value);
     };
 
+    const handleProcedureChange = (e) => {
+        setSelectedProcedure(e.target.value);
+    };
+
     const handleSaveEvent = () => {
-        onSave({ name: eventName, date: eventDate });
+        onSave({ name: eventName, date: eventDate, procedure: selectedProcedure });
         onClose();
     };
 
@@ -48,17 +51,19 @@ const EventPopup = ({ date, onClose, onSave }) => {
                 </div>
                 <div>
                     <div className="relative">
-
-                        <select className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-                            <option value="">
-                                Procedures
-                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path
-                                        d="M10 12l-6-6h12z" />
-                                </svg>
-                            </option>
+                        <select
+                            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+                            value={selectedProcedure}
+                            onChange={handleProcedureChange}
+                        >
+                            <option value="">Procedures</option>
                             {procedures.map((procedure) => (
-                                <option value={procedure.procedureName} className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" key={procedure.procedureName}>{`${procedure.procedureName}`}
+                                <option
+                                    value={procedure.procedureName}
+                                    className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                                    key={procedure.procedureName}
+                                >
+                                    {procedure.procedureName}
                                 </option>
                             ))}
                         </select>
@@ -70,6 +75,7 @@ const EventPopup = ({ date, onClose, onSave }) => {
         </div>
     );
 };
+
 
 const Calendar = () => {
 
@@ -190,11 +196,13 @@ const Calendar = () => {
                 <EventPopup date={selectedDate} onClose={handleClosePopup} onSave={handleSaveEvent} />
             )}
             <div>
-                <h3>Events:</h3>
-                <ul>
+                <h3 className='underline'>Appointments:</h3>
+                <ul >
                     {events.map((event, index) => (
                         <li key={index}>
-                            {event.name} - {event.date}
+                            <p>{event.date}</p>
+                            <p>{event.name}</p>
+                            <p>{event.procedure}</p>
                         </li>
                     ))}
                 </ul>
