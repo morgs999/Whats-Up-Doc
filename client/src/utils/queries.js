@@ -32,13 +32,10 @@ export const QUERY_ALL_DOCTOR = gql`
 
 
 export const QUERY_ALL_PROCEDURE = gql`
-query getAllProcedure {
-  procedure 
+query getProcedures {
+  procedures 
     { _id
       procedureName
-      appointment {
-        _id
-      }
   }
 }
 `;
