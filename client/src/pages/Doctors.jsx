@@ -50,6 +50,7 @@ const Doctors = () => {
   // adding DRS to profile
   const [addDoctor, { error }] = useMutation
     (ADD_DOCTOR);
+
   // Styling for DR Cards
   const slider = useRef(null);
   const settings = {
