@@ -23,25 +23,24 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_ALL_DOCTOR = gql`
-  query getAllDoctor {
-      _id
-      doctorName
-      specialty
-      appointment {
-        _id
-      }
+  query getDoctors {
+    doctors  
+    {doctorName
+      specialty}
     }
 `;
 
 
 export const QUERY_ALL_PROCEDURE = gql`
 query getAllProcedure {
-    _id
-    procedureName
-    appointment {
-      _id
-    }
+  procedure 
+    { _id
+      procedureName
+      appointment {
+        _id
+      }
   }
+}
 `;
 
 // export const QUERY_SINGLE_PRESCRIPTION = gql`
