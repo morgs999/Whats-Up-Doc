@@ -23,13 +23,11 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        const user = User.findOne({ _id: context.user._id });
+        return user;
       }
       throw AuthenticationError;
     },
-    // appointments: async (parent, { _id }) => {
-    //   return Appointment.find({ user: { _id } })
-    // }
     appointments: async () => {
       return Appointment.find();
     }
@@ -92,17 +90,16 @@ const resolvers = {
       }
       throw AuthenticationError
     },
-    //Add/remove appointment
     addAppointment: async (parent, args, context) => {
-      console.log(args);
-      console.log(context.user)
+      // console.log(args);
+      // console.log(context.user)
       if (context.user) {
-        const newAppointment = await Appointment.create(args);
+        await Appointment.create(args);
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           {
             $addToSet: {
-              appointments: { newAppointment },
+              appointments: { ...args },
             },
           },
           {
@@ -116,42 +113,23 @@ const resolvers = {
       throw AuthenticationError;
     },
     removeAppointment: async (parent, args, context) => {
-      // if (context.user) {
-      console.log(args);
-      const appointmentId = new ObjectId(args.appointmentId);
-      const updatedUser = await User.findOneAndUpdate(
-        { _id: context.user._id },
-        {
-          $pull: {
-            // plants: { _id: args.plantId },
-            appointments: appointmentId,
+      if (context.user) {
+        const appointmentId = new ObjectId(args.appointmentId);
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $pull: {
+              // plants: { _id: args.plantId },
+              appointments: appointmentId,
+            },
           },
-        },
-        { new: true }
-      );
-      console.log('Removed:', updatedUser);
-      return updatedUser;
-      // }
-      // throw AuthenticationError;
+          { new: true }
+        );
+        console.log('Removed:', updatedUser);
+        return updatedUser;
+      }
+      throw AuthenticationError;
     },
-    // addAppointment: async (parent, { date, name, procedure, user }, context) => {
-    //   // if (context.user) {
-    //   // const user = await User.find(email);
-    //   // const newAppointment = await Appointment.create({ date, procedure });
-    //   return Appointment.create({ date, name, procedure, user })
-    //   // } throw AuthenticationError
-    // },
-    // removeAppointment: async (parent, { email, id }, context) => {
-    //   if (context.user) {
-    //     const oldAppointment = Appointment.find({ _id: id });
-    //     return User.findOneAndUpdate(
-    //       { email: email },
-    //       { $pull: { appointment: { oldAppointment } } },
-    //       { new: true }
-    //     )
-    //   }
-    //   throw AuthenticationError
-    // },
     updateRefill: async (parent, { prescriptionName, refill }, context) => {
       if (context.user) {
         return Prescription.findOneAndUpdate(

@@ -31,7 +31,22 @@ const userSchema = new Schema({
     location: String,
     // match: [/([a-zA-Z]*),? ([A-Z][A-Z])/]
   },
-  appointments: [],
+  appointments: [{
+    date: {
+      type: Date,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    procedure: {
+      // type: Schema.Types.ObjectId,
+      type: String,
+      required: true,
+      ref: 'Procedure'
+    }
+  }],
   doctor: [{
     type: String,
     ref: "Doctor"
