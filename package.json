@@ -9,14 +9,15 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "render": "npm install && npm i --force && npm run seed && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.17",
-    "concurrently": "^5.3.0",
+    "concurrently": "^8.2.0",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1"
   }

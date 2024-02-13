@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require('bcrypt');
+const Appointment = require('./Appointment');
 
 const userSchema = new Schema({
   firstName: {
@@ -30,10 +31,7 @@ const userSchema = new Schema({
     location: String,
     // match: [/([a-zA-Z]*),? ([A-Z][A-Z])/]
   },
-  appointment: {
-    type: Schema.Types.ObjectId,
-    ref: "Appointment"
-  },
+  appointments: [],
   doctor: [{
     type: String,
     ref: "Doctor"

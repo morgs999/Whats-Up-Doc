@@ -99,38 +99,13 @@ export const REMOVE_DOCTOR = gql`
 // `;
 
 export const ADD_APPOINTMENT = gql`
-  mutation addAppointment(
-    $date: String!
-    $time: String!
-    $procedure: ID!
-    $user: String!
-  ) 
-    {
-      addAppointment(
-        date: $date
-        time: $time
-        procedure: $procedure
-        user: $user
-      ) 
-        {
-          date
-          time
-            procedure{
-              _id
-              name
-              prescription
-            }
-            user {
-              firstName
-              lastName
-              location
-                doctor {
-                  name
-                }
-            }
-          }
-      }
-  
+mutation Mutation($date: String!, $name: String!, $procedure: String!) {
+  addAppointment(date: $date, name: $name, procedure: $procedure) {
+    _id
+    date
+    procedure
+  }
+} 
 `;
 
 export const REMOVE_APPOINTMENT = gql`
