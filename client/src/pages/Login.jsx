@@ -74,7 +74,7 @@ const Login = (props) => {
               <input className="border-2 border-black form-input" name="password" type="password" value={formState.password} onChange={handleChange} />
 
             </div>
-            <button type="submit" className='border w-full my-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white' style={{ cursor: 'pointer' }}>Log In</button>
+            <button type="submit" className='border w-full my-5 py-2 bg-gradient-to-r from-[#4da8f3] to-[#163d69]  text-white' style={{ cursor: 'pointer' }}>Log In</button>
             {/* <div className='flex justify-between'>
             <p className='flex items-center'><input mr-2 type="checkbox" />Remeber Me</p>
             <p>Create an Account</p>

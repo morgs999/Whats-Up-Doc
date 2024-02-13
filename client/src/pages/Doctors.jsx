@@ -124,13 +124,13 @@ const Doctors = () => {
         {/* ARROWS */}
         <div className="flex gap-5 mt-4 lg:mt-0">
           <button
-            className="bg-[#d5f2ec] text-backgroundColor px-4 py-2 rounded-lg active:bg-[#ade9dc]"
+            className="bg-gradient-to-r from-[#4da8f3] to-[#163d69] text-white px-4 py-2 rounded-lg active:bg-[#ade9dc]"
             onClick={() => slider.current.slickPrev()}
           >
             <FaArrowLeft size={25} />
           </button>
           <button
-            className="bg-[#d5f2ec] text-backgroundColor px-4 py-2 rounded-lg active:bg-[#ade9dc]"
+            className="bg-gradient-to-r from-[#4da8f3] to-[#163d69] text-white px-4 py-2 rounded-lg active:bg-[#ade9dc]"
             onClick={() => slider.current.slickNext()}
           >
             <FaArrowRight size={25} />
@@ -158,7 +158,7 @@ const Doctors = () => {
                 <h1 className="font-semibold text-xl pt-4">{doctor.doctorName}</h1>
                 <h3 className="pt-2">{doctor.specialty}</h3>
 
-                <button onClick={handleFormSubmit} className='border rounded-xl w-full my-5 mx-2 py-2 px-2 bg-indigo-600 hover:bg-indigo-500 text-white' value={doctor.doctorName} style={{ cursor: 'pointer' }}>Add {`${doctor.doctorName}`}</button>
+                <button onClick={handleFormSubmit} className='border rounded-xl w-full my-5 mx-2 py-2 px-2 bg-gradient-to-r from-[#4da8f3] to-[#163d69] text-white' value={doctor.doctorName} style={{ cursor: 'pointer' }}>Add {`${doctor.doctorName}`}</button>
 
               </div>
             </div>
