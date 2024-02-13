@@ -1,23 +1,21 @@
-import React from "react";
-
+import bg1 from '../assets/bg1.png';
 
 const Home = () => {
   return (
-    <div className=" min-h-screen flex flex-col justify-center lg:px-32 px-5 text-white bg-[url('assets/home.png')] bg-no-repeat bg-cover ">
-      <div className=" w-full lg:w-4/5 space-y-5 mt-10">
-        <h1 className="text-orange-500 text-5xl font-bold leading-tight">
-          What's Up Doc? </h1>
-        <h2 className="text-white text-4xl font-bold leading-tight">
-          Appointment Booking Service
-        </h2>
-        <h2 className="text-white text-4xl font-bold leading-tight">
-          You health is our priority
-        </h2>
+    <div name='home' className='w-full h-screen bg-white flex flex-col justify-between'>
+      <div className='grid lg:grid-cols-2 max-w-[1340px] m-auto'>
+        <div className='flex flex-col justify-center md:items-start w-full px-2 py-8'>
+          <h1 className='py-2 text-5xl md:text-7xl font-bold text-orange-600'>What's Up Doc? </h1>
+          <h2 className='text-5xl font-bold'>Appointment Booking Service</h2>
+          <h2 className='text-4xl'>Your Health Is Our Priority</h2>
+          <button className='border w-60 my-4 py-2 px-6 bg-gradient-to-r from-[#4da8f3] to-[#163d69] text-white text-2xl'>Get Started</button>
+        </div>
+        <div>
+          <img className='w-[800px] object-cover h-full' src={bg1} alt="Background"/>
+        </div>
+        <div className='absolute flex flex-col py-8 md:min-w-[760px] bottom-[5% '>
 
-        <p className="text-white text-2xl font-semi-bold leading-tight">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam magnam
-          omnis natus accusantium quos.
-        </p>
+        </div>
       </div>
     </div>
   );
