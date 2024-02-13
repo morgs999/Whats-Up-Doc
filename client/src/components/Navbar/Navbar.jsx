@@ -62,17 +62,6 @@ const Navbar = () => {
                 </NavLink>
               </li>
 
-              {/* <li className="nav-item">
-                <NavLink
-                  to="/contact"
-                  className="nav-links"
-                  // activeClassName="activated"
-                  onClick={closeMobileMenu}
-                >
-                  Contact Us
-                </NavLink>
-              </li> */}
-
               {Auth.loggedIn() ? (
                 <>
                   <li className="nav-item">
@@ -95,6 +84,18 @@ const Navbar = () => {
                       Refill Your Prescriptions
                     </NavLink>
                   </li>
+
+                  <li className="nav-item">
+                    <NavLink
+                      to="/contact"
+                      className="nav-links"
+                      // activeClassName="activated"
+                      onClick={closeMobileMenu}
+                    >
+                      Contact
+                    </NavLink>
+                  </li>
+
                   <li className="nav-item">
                     <NavLink
                       to="/profile"
@@ -118,6 +119,17 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
+                  <li className="nav-item">
+                    <NavLink
+                      to="/contact"
+                      className="nav-links"
+                      // activeClassName="activated"
+                      onClick={closeMobileMenu}
+                    >
+                      Contact
+                    </NavLink>
+                  </li>
+
                   <li className="nav-item">
                     <NavLink
                       to="/login"

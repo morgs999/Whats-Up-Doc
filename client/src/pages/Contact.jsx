@@ -27,7 +27,8 @@ export default function Contact() {
 
   return (
     <div className="contact max-w-md mx-auto py-8">
-      <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
+      <h1 className="text-center text-4xl font-semibold">Contact Us</h1>
+      <br />
       <div className="mb-4">
         <h2 className="text-lg font-semibold">How can we help?</h2>
         <p>Please use the list below to find the best method of contact for your needs</p>

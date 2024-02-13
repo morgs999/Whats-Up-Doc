@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALL_PROCEDURE } from '../utils/queries';
-// import { useState } from '@apollo/client';
 
 const EventPopup = ({ date, onClose, onSave }) => {
-
     const { loading, data } = useQuery(QUERY_ALL_PROCEDURE);
     const procedures = data?.procedures || [];
 
     const [eventName, setEventName] = useState('');
     const [eventDate, setEventDate] = useState(date);
+    const [selectedProcedure, setSelectedProcedure] = useState('');
 
     const handleEventNameChange = (e) => {
         setEventName(e.target.value);
@@ -19,17 +18,21 @@ const EventPopup = ({ date, onClose, onSave }) => {
         setEventDate(e.target.value);
     };
 
+    const handleProcedureChange = (e) => {
+        setSelectedProcedure(e.target.value);
+    };
+
     const handleSaveEvent = () => {
-        onSave({ name: eventName, date: eventDate });
+        onSave({ name: eventName, date: eventDate, procedure: selectedProcedure });
         onClose();
     };
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
             <div className="bg-white p-4 rounded-lg">
-                <h2 className="text-lg font-semibold mb-4">Add event for {date}</h2>
+                <h2 className="text-lg font-semibold mb-4">Schedule an Appointment</h2>
                 <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Event Name</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Appointment Name</label>
                     <input
                         type="text"
                         className="border rounded-md px-3 py-2 w-full"
@@ -38,7 +41,7 @@ const EventPopup = ({ date, onClose, onSave }) => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Event Date</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Appointment Date</label>
                     <input
                         type="date"
                         className="border rounded-md px-3 py-2 w-full"
@@ -48,17 +51,19 @@ const EventPopup = ({ date, onClose, onSave }) => {
                 </div>
                 <div>
                     <div className="relative">
-
-                        <select className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-                            <option value="">
-                                Procedures
-                                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path
-                                        d="M10 12l-6-6h12z" />
-                                </svg>
-                            </option>
+                        <select
+                            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+                            value={selectedProcedure}
+                            onChange={handleProcedureChange}
+                        >
+                            <option value="">Procedures</option>
                             {procedures.map((procedure) => (
-                                <option value={procedure.procedureName} className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" key={procedure.procedureName}>{`${procedure.procedureName}`}
+                                <option
+                                    value={procedure.procedureName}
+                                    className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                                    key={procedure.procedureName}
+                                >
+                                    {procedure.procedureName}
                                 </option>
                             ))}
                         </select>
@@ -70,6 +75,7 @@ const EventPopup = ({ date, onClose, onSave }) => {
         </div>
     );
 };
+
 
 const Calendar = () => {
 
@@ -163,25 +169,25 @@ const Calendar = () => {
                 <button onClick={nextMonth}>&gt;</button>
             </div>
             <div className="grid grid-cols-7 gap-1 p-2">
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Sun</span>
                 </div>
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Mon</span>
                 </div>
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Tue</span>
                 </div>
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Wed</span>
                 </div>
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Thu</span>
                 </div>
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Fri</span>
                 </div>
-                <div className="day flex justify-center items-center p-2 border">
+                <div className="day flex justify-center items-center p-2 border h-16 w-16">
                     <span className="text-sm font-bold">Sat</span>
                 </div>
                 {renderCalendar()}
@@ -189,19 +195,21 @@ const Calendar = () => {
             {selectedDate && (
                 <EventPopup date={selectedDate} onClose={handleClosePopup} onSave={handleSaveEvent} />
             )}
-            <div>
-                <h3>Events:</h3>
-                <ul>
+            <div className='text-center'>
+                <h3 className='underline'>Appointments:</h3>
+                <ul className="grid grid-cols-1 gap-2">
                     {events.map((event, index) => (
-                        <li key={index}>
-                            {event.name} - {event.date}
+                        <li key={index} className="border p-3 rounded-md">
+                            <p className="text-sm font-semibold">Date: {event.date}</p>
+                            <p className="text-sm font-semibold">Name: {event.name}</p>
+                            <p className="text-sm font-semibold">Procedure: {event.procedure}</p>
                         </li>
                     ))}
                 </ul>
             </div>
         </div>
     );
-};
+                    };     
 
 
 export default Calendar;

@@ -12,7 +12,7 @@ const Footer = () => {
                     >
                         🥕
                     </span>{' '}
-                    by <a href="https://github.com/TammyH7">TammyH7</a>, <a href="https://github.com/unfazedxx">unfazedxx</a>, and <a href="https://github.com/morgs999">morgs999</a>.
+                    by <a href="https://github.com/TammyH7">Tammy</a>, <a href="https://github.com/unfazedxx">Kunal</a>, and <a href="https://github.com/morgs999">Morgan</a>.
                 </h4 >
             </div >
         </footer >
