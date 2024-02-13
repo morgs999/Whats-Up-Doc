@@ -41,7 +41,7 @@ const Signup = () => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+
           <div className="card-body">
             {data ? (
               <p>
@@ -49,33 +49,71 @@ const Signup = () => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <div className="columns-2">
-                <form onSubmit={handleFormSubmit}>
+              <div className="container p-10">
+                <h1 className="card-header bg-dark text-light p-2">Sign Up</h1>
+                <div className="grid grid-cols-2 gap-4">
+                  <form onSubmit={handleFormSubmit}>
+                    <div className="m-3">
+                      <input
+                        className="form-input rounded-lg bg-gray-100 p-4 w-full"
+                        placeholder="Your email"
+                        name="email"
+                        type="email"
+                        value={formState.email}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="m-3">
+                      <input
+                        className="form-input rounded-lg bg-gray-100 p-4 w-full"
+                        placeholder="****"
+                        name="password"
+                        type="password"
+                        value={formState.password}
+                        onChange={handleChange}
+                      />
+                    </div>
+                    <div className="m-3">
+                      <input
+                        className="form-input rounded-lg bg-gray-100 p-4 w-full"
+                        placeholder="First Name"
+                        name="firstName"
+                        type="text"
+                      />
+                    </div>
+                    <div className="m-3">
+                      <input
+                        className="form-input rounded-lg bg-gray-100 p-4 w-full"
+                        placeholder="Last Name"
+                        name="lastName"
+                        type="text"
+                      />
+                    </div>
+                    <div className="m-3">
+                      <input
+                        className="form-input rounded-lg bg-gray-100 p-4 w-full"
+                        placeholder="Age"
+                        name="age"
+                        type="text"
+                      />
+                    </div>
+                    <div className="m-3">
+                      <input
+                        className="form-input rounded-lg bg-gray-100 p-4 w-full"
+                        placeholder="Gender"
+                        name="gender"
+                        type="text"
+                      />
+                    </div>
+                  </form>
 
-                  <input
-                    className="form-input m-3 rounded-lg bg-gray-100 p-4"
-                    placeholder="Your email"
-                    name="email"
-                    type="email"
-                    value={formState.email}
-                    onChange={handleChange}
-                  />
-                  <input
-                    className="form-input m-3 rounded-lg bg-gray-100 p-4"
-                    placeholder="******"
-                    name="password"
-                    type="password"
-                    value={formState.password}
-                    onChange={handleChange}
-                  />
                   <button
-                    className="btn btn-block btn-primary m-3"
+                    className="btn  btn-block btn-primary m-3"
                     style={{ cursor: 'pointer' }}
-                    type="submit"
-                  >
+                    type="submit">
                     Submit
                   </button>
-                </form>
+                </div>
               </div>
             )}
 
