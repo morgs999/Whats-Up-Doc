@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALL_PROCEDURE } from '../utils/queries';
+import { useMutation } from '@apollo/client';
+import { ADD_APPOINTMENT } from '../utils/mutations';
 
 const EventPopup = ({ date, onClose, onSave }) => {
     const { loading, data } = useQuery(QUERY_ALL_PROCEDURE);
     const procedures = data?.procedures || [];
+
+    const [addAppointment, { error, apptdata }] = useMutation(ADD_APPOINTMENT);
 
     const [eventName, setEventName] = useState('');
     const [eventDate, setEventDate] = useState(date);
@@ -22,7 +26,11 @@ const EventPopup = ({ date, onClose, onSave }) => {
         setSelectedProcedure(e.target.value);
     };
 
-    const handleSaveEvent = () => {
+    const handleSaveEvent = async () => {
+        await addAppointment({
+            variables: { date: eventDate, name: eventName, procedure: selectedProcedure },
+        });
+
         onSave({ name: eventName, date: eventDate, procedure: selectedProcedure });
         onClose();
     };
@@ -209,7 +217,7 @@ const Calendar = () => {
             </div>
         </div>
     );
-                    };     
+};
 
 
 export default Calendar;

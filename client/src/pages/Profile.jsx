@@ -11,8 +11,14 @@ const Profile = () => {
     variables: { email: userParam },
   });
 
+  // const { apptloading, apptdata } = useQuery(QUERY_ALL_APPOINTMENT);
+  // console.log(apptdata);
+  // const appointment = apptdata?.appointments || [];
+  // console.log(appointment);
   const user = data?.me || data?.user || {};
+  console.log(user);
   // navigate to personal profile page if email is yours
+  // {`${appointment.name}`}
   if (Auth.loggedIn() && Auth.getProfile().data.email === userParam) {
     return <Navigate to="/profile" />;
   }
@@ -33,7 +39,7 @@ const Profile = () => {
 
   return (
     <div className="container mx-auto pt-4 text-center">
-      
+
       <div className="mb-4">
         <h2 className="text-lg">Welcome {`${user.firstName}`}!</h2>
       </div>
@@ -47,7 +53,7 @@ const Profile = () => {
             <li><strong>Name:</strong> Kunal</li>
             <li><strong>Age:</strong> 28</li>
             <li><strong>Gender:</strong> Male</li>
-            <li><strong>Doctor:</strong> Dr. Smith</li>
+            <li><strong>Doctor:</strong> {`${user.doctor}`}</li>
             <li><strong>Medical History:</strong> None</li>
             <li><strong>Current Medications:</strong> None</li>
           </ul>
@@ -58,12 +64,13 @@ const Profile = () => {
           </div>
           <h3 className="text-lg font-semibold mb-2 underline">Visitation Notes</h3>
           <ul className="text-left">
-            <li><strong>Date of Visit:</strong> 02/05/2024</li>
+            <li><strong>Date of Visit:</strong> </li>
             <br />
-            <li><strong>Reason for Visit:</strong> Annual checkup and bloodwork</li>
+            <li><strong>Reason for Visit:</strong>{`${user.appointments}`}</li>
             <br />
             <li><strong>Vitals:</strong>
               <ul className="list-disc pl-4">
+                {/* {user.appointments.map()} */}
                 <li className=''>Blood Pressure: 120/80 mmHg</li>
                 <li>Pulse Rate: 70 beats per minute</li>
                 <li>Respiratory Rate: 16 breaths per minute</li>

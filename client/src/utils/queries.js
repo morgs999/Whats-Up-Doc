@@ -18,6 +18,7 @@ export const QUERY_ME = gql`
       email
       firstName
       lastName
+
     }
   }
 `;
@@ -28,6 +29,17 @@ export const QUERY_ALL_DOCTOR = gql`
     {doctorName
       specialty}
     }
+`;
+
+export const QUERY_ALL_APPOINTMENT = gql`
+ query Appointments($id: ID!) {
+  appointments(_id: $id) {
+    _id
+    date
+    procedure
+    user
+  }
+}
 `;
 
 

@@ -6,15 +6,14 @@ const typeDefs = `
     email: String
     password: String
     location: String
-    doctor: Doctor
+    doctor: [Doctor]
+    appointments: [Appointment]
   }
 
   type Appointment {
     _id: ID
     date: String
-    time: String
-    procedure: Procedure!
-    user: User!
+    procedure: String
   }
 
   type Doctor {
@@ -56,6 +55,8 @@ const typeDefs = `
     prescription(prescriptionName: String!): Prescription
 
     me: User
+
+    appointments: [Appointment]
   }
 
   type Mutation {
@@ -69,7 +70,7 @@ const typeDefs = `
 
     removeDoctor(email: String!, doctorName: String!): User
 
-    addAppointment(date: String!, time: String!, procedure: ID!, user: String!): User
+    addAppointment(date: String!, name: String!, procedure: String!): User
 
     removeAppointment(email: String!, id: ID!): User
 
