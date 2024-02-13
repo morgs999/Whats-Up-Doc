@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Slider from "react-slick";
 import Calendar from '../components/Calendar';
@@ -13,7 +12,6 @@ const Appointment = () => {
 
   const { loading, data } = useQuery(QUERY_ALL_PROCEDURE);
   const procedures = data?.procedures || [];
-  // console.log(procedures, "hello morgan");
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -66,20 +64,6 @@ const Appointment = () => {
       {selectedTime && (
         <p>Selected appointment time: {selectedTime}</p>
       )}
-
-
-      {/* <div className="m-5 col-6 justify-center">
-        <Slider >
-          {procedures.map((procedure) => (
-            <div
-              className="h-[400px] text-black rounded-xl shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] mb-2 cursor-pointer"
-              key={procedure.procedureName}
-            >
-              <button onClick={handleFormSubmit} className='border rounded-xl w-full my-5 mx-2 py-2 px-2 bg-indigo-600 hover:bg-indigo-500 text-white' value={procedure.procedureName} style={{ cursor: 'pointer' }}>{`${procedure.procedureName}`}</button>
-            </div>
-          ))}
-        </Slider>
-      </div> */}
 
     </div>
   );

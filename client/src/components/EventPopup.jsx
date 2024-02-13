@@ -13,12 +13,8 @@ const EventPopup = ({ date, onClose }) => {
   };
 
   const handleSaveEvent = () => {
-    // You can handle saving the event data here
-    // For example, send it to a backend API or update state in the parent component
     console.log('Event Name:', eventName);
     console.log('Event Date:', eventDate);
-
-    // Close the popup
     onClose();
   };
 
