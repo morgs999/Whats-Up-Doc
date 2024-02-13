@@ -7,19 +7,15 @@ const appointmentSchema = new Schema({
     type: Date,
     required: true,
   },
-  time: {
-    type: Date,
-    required: true,
+  name: {
+    type: String,
+    required: true
   },
   procedure: {
-    type: Schema.Types.ObjectId,
+    // type: Schema.Types.ObjectId,
+    type: String,
     required: true,
     ref: 'Procedure'
-  },
-  user: {
-    type: Schema.Types.String,
-    required: true,
-    ref: 'User'
   }
 });
 
