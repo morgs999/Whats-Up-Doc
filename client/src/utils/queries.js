@@ -18,7 +18,7 @@ export const QUERY_ME = gql`
       email
       firstName
       lastName
-
+      appointments{_id}
     }
   }
 `;
@@ -32,16 +32,14 @@ export const QUERY_ALL_DOCTOR = gql`
 `;
 
 export const QUERY_ALL_APPOINTMENT = gql`
- query Appointments($id: ID!) {
-  appointments(_id: $id) {
+query getAppointments {
+  appointments {
     _id
     date
     procedure
-    user
   }
 }
 `;
-
 
 export const QUERY_ALL_PROCEDURE = gql`
 query getProcedures {
@@ -51,15 +49,3 @@ query getProcedures {
   }
 }
 `;
-
-// export const QUERY_SINGLE_PRESCRIPTION = gql`
-// query getSinglePrescription ($prescriptionName: prescriptionName!) {
-//     prescription(prescriptionName: $prescriptionName) {
-//         _id
-//         prescriptionName
-//         procedure
-//         appointment {
-//             _id
-//         }
-//     }
-// `;

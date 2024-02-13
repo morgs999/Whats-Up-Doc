@@ -1,28 +1,27 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER, QUERY_ME, QUERY_ALL_APPOINTMENT } from '../utils/queries';
 import Auth from '../utils/auth';
 
 const Profile = () => {
   const { email: userParam } = useParams();
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+
+
+  const { loading: userloading, data: userdata } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+
     variables: { email: userParam },
   });
+  const user = userdata?.me || userdata?.user || {};
 
-  // const { apptloading, apptdata } = useQuery(QUERY_ALL_APPOINTMENT);
-  // console.log(apptdata);
-  // const appointment = apptdata?.appointments || [];
-  // console.log(appointment);
-  const user = data?.me || data?.user || {};
-  console.log(user);
-  // navigate to personal profile page if email is yours
-  // {`${appointment.name}`}
+  const { loading: apptloading, data: apptdata } = useQuery(QUERY_ALL_APPOINTMENT);
+  const appointment = apptdata?.appointments || [];
+
   if (Auth.loggedIn() && Auth.getProfile().data.email === userParam) {
     return <Navigate to="/profile" />;
   }
 
-  if (loading) {
+  if (userloading) {
     return <div>Loading...</div>;
   }
 
@@ -49,7 +48,7 @@ const Profile = () => {
           </div>
           <h3 className="text-lg font-semibold mb-2 underline">Patient Information</h3>
           <ul className="text-left">
-            <li><strong>Name:</strong> Kunal</li>
+            <li><strong>Name:</strong> {`${user.firstName} ${user.lastName}`}</li>
             <li><strong>Age:</strong> 28</li>
             <li><strong>Gender:</strong> Male</li>
             <li><strong>Doctor:</strong> {`${user.doctor}`}</li>
@@ -65,11 +64,12 @@ const Profile = () => {
           <ul className="text-left">
             <li><strong>Date of Visit:</strong> </li>
             <br />
-            <li><strong>Reason for Visit:</strong>{`${user.appointments}`}</li>
+            <li><strong>Reason for Visit:</strong>{`${appointment[0]}`}</li>
             <br />
             <li><strong>Vitals:</strong>
               <ul className="list-disc pl-4">
-                {/* {user.appointments.map()} */}
+                {/* {appointment.map(appointment)} */}
+
                 <li className=''>Blood Pressure: 120/80 mmHg</li>
                 <li>Pulse Rate: 70 beats per minute</li>
                 <li>Respiratory Rate: 16 breaths per minute</li>

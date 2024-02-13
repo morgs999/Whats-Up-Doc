@@ -71,33 +71,6 @@ export const REMOVE_DOCTOR = gql`
     }
   `;
 
-//do we update the doctor for the user too?
-//is this the right syntax to do that 
-
-//not certain about this one, or if we need to link in the user somehow
-
-// export const UPDATE_DOCTOR = gql`
-//   mutation updateDoctor($name: String!) {
-//     updateDoctor(name: $name) {
-//       doctor {
-//         name
-//       }
-//     }
-//   }
-// `;
-
-//taking name from doctor for an appointment with them?
-// export const ADD_APPOINTMENT = gql`
-//   mutation addAppointment($name:String!) {
-//     addAppointment(name: $name) {
-//       name
-//     }
-//     doctor {
-//       name
-//     }
-//   }
-// `;
-
 export const ADD_APPOINTMENT = gql`
 mutation Mutation($date: String!, $name: String!, $procedure: String!) {
   addAppointment(date: $date, name: $name, procedure: $procedure) {
@@ -127,6 +100,3 @@ mutation updateRefill($name: String, $refill:Boolean!) {
   }
 }
 `;
-
-//add in some sort of message stating the appointment has been removed
-//do we need to add in the appointment id after removing to keep track of it?

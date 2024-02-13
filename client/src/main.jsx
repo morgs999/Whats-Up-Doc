@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import * as React from "react";
-// import { createRoot } from "react-dom/client";
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -18,19 +18,8 @@ import Contact from './pages/Contact';
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-// import Navbar from './components/Navbar';
 import './index.css'
-// import './components/Navbar/Navbar.css';
 
-// const AppLayout = () => {
-//   return (
-//     <>
-//       <App />
-//       <Navbar />
-//       <Outlet />
-//     </>
-//   );
-// };
 
 const router = createBrowserRouter([
   {

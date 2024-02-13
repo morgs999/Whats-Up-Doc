@@ -19,8 +19,6 @@ const appointmentSchema = new Schema({
   }
 });
 
-// appointmentSchema.method for setting date to string
-// appointmentSchema.method for setting time to string
 
 const Appointment = model("Appointment", appointmentSchema);
 
