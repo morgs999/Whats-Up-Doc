@@ -6,7 +6,6 @@ import Auth from '../utils/auth';
 
 const Profile = () => {
   const { email: userParam } = useParams();
-
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { email: userParam },
   });
