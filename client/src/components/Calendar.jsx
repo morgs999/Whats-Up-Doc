@@ -27,9 +27,9 @@ const EventPopup = ({ date, onClose, onSave }) => {
     };
 
     const handleSaveEvent = async () => {
-        await addAppointment({
-            variables: { date: eventDate, name: eventName, procedure: selectedProcedure },
-        });
+        // await addAppointment({
+        //     variables: { date: eventDate, name: eventName, procedure: selectedProcedure },
+        // });
 
         onSave({ name: eventName, date: eventDate, procedure: selectedProcedure });
         onClose();

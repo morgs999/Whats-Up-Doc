@@ -51,7 +51,7 @@ const Profile = () => {
             <li><strong>Name:</strong> {`${user.firstName} ${user.lastName}`}</li>
             <li><strong>Age:</strong> 28</li>
             <li><strong>Gender:</strong> Male</li>
-            <li><strong>Doctor:</strong> {`${user.doctor}`}</li>
+            <li><strong>Doctor:</strong> Dr. Stevens</li>
             <li><strong>Medical History:</strong> None</li>
             <li><strong>Current Medications:</strong> None</li>
           </ul>
@@ -62,9 +62,9 @@ const Profile = () => {
           </div>
           <h3 className="text-lg font-semibold mb-2 underline">Visitation Notes</h3>
           <ul className="text-left">
-            <li><strong>Date of Visit:</strong> </li>
+            <li><strong>Date of Visit: 02/10/2024</strong> </li>
             <br />
-            <li><strong>Reason for Visit:</strong>{`${appointment[0]}`}</li>
+            <li><strong>Reason for Visit:</strong>Annual Checkup</li>
             <br />
             <li><strong>Vitals:</strong>
               <ul className="list-disc pl-4">
@@ -77,7 +77,14 @@ const Profile = () => {
               </ul>
             </li>
             <br />
-            <li><strong>Additional Notes:</strong> Patient was worried about a persistent cough they recently had. Checked for covid symptoms and flu symptoms, all negative. Recommended proper rest, fluids and to not go outside if it is too cold. Drew two vials of patient's blood for lab testing. New appointment scheduled for 07/01/2024</li>
+            <li><strong>Additional Notes:</strong> Patient was worried about a persistent cough they recently had. Checked for covid symptoms and flu symptoms, all negative. Recommended proper rest, fluids and to not go outside if it is too cold. Drew two vials of patient's blood for lab testing. New appointment scheduled for 08/01/2024</li>
+            <li><strong>Next Appointment:</strong>
+            <ul>
+                <li>Date: 08/01/2024</li>
+                <li>Name: Biannual Checkup</li>
+                <li>Procedure: Diabetes Checkup</li>
+            </ul>
+            </li>
           </ul>
         </div>
         <div className="rounded-lg bg-gray-100 p-4">
