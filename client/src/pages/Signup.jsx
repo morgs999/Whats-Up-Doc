@@ -105,14 +105,16 @@ const Signup = () => {
                         type="text"
                       />
                     </div>
-                  </form>
-
-                  <button
+                    <button
                     className="btn  btn-block btn-primary m-3"
                     style={{ cursor: 'pointer' }}
                     type="submit">
                     Submit
                   </button>
+                  
+                  </form>
+
+                
                 </div>
               </div>
             )}
