@@ -5,6 +5,7 @@
   * [Description](#description)
   * [Deployed Application](#deployed-application)
   * [Usage](#usage)
+  * [Screenshots](#screenshots)
   * [Credits](#credits)
   * [License](#license)
   * [Authors](#authors)
@@ -35,6 +36,11 @@ On the server-side, a medical provider can:
  - provide a user with prescription based on their procedure selection
 
 <br><br>
+
+### Screenshots
+
+![Whats up Doc landing page](./assets/image.png)
+![Profile spage ](./assets/image-1.png)
 
 ### Credits
 [![NPM](https://img.shields.io/badge/NPM-b32727?style=for-the-badge&logo=NPM&logoColor=white)](https://www.npmjs.com/)
